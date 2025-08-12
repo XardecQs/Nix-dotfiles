@@ -27,6 +27,7 @@
       tree
 
       # Entorno de escritorio
+      eiciel
       gnome-tweaks # Fixed package name
       gnome-extension-manager
       gnomeExtensions.gsconnect
@@ -35,6 +36,10 @@
       gnomeExtensions.dash-to-dock
       gnomeExtensions.user-themes
       gnomeExtensions.rounded-window-corners-reborn
+      gnomeExtensions.maximize-to-empty-workspace-2025
+      gnomeExtensions.fullscreen-hot-corner
+      gnomeExtensions.clipboard-indicator
+
       dconf-editor
       kitty
       github-desktop
@@ -73,6 +78,19 @@
       wineWowPackages.stagingFull
       steam
       lutris
+
+      #texliveFull
+      virt-manager
+      virt-viewer
+      spice
+      spice-gtk
+      spice-protocol
+      win-virtio
+      win-spice
+      freerdp
+
+      realcugan-ncnn-vulkan
+      realesrgan-ncnn-vulkan
     ];
 
     file = {
@@ -96,36 +114,34 @@
 
   programs.zsh = {
     enable = true;
-    enableCompletion = true;
-    autosuggestion.enable = true;
-    syntaxHighlighting.enable = true;
 
     initContent = ''
-      source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
-      source ${pkgs.zsh-fzf-tab}/share/fzf-tab/fzf-tab.zsh
-      zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
-      zstyle ':completion:*' menu no
-      zstyle ':fzf-tab:complete:cd:*' fzf-preview 'lsd --color=always $realpath'
-      bindkey '^[[1;5C' forward-word
-      bindkey '^[[1;5D' backward-word
-      bindkey '^H' backward-kill-word
-      bindkey "^[[3~" delete-char
-      zstyle ':fzf-tab:*' fzf-flags --height=40% --border
-      [[ ! -f ~/.config/zsh/p10k.zsh ]] || source ~/.config/zsh/p10k.zsh
+      source ${config.home.homeDirectory}/.dotfiles/zshrc
     '';
 
     shellAliases = {
       lla = "lsd -la";
+      la = "lsd -a";
       ll = "lsd -l";
       ls = "lsd";
       q = "exit";
-      c = "exit";
+      c = "clear";
       ".." = "cd ..";
       "..." = "cd ../..";
       cf = "clear && fastfetch";
+      cff = "clear && fastfetch --config examples/13.jsonc";
       snvim = "sudo nvim";
       ordenar = "~/Proyectos/Scripts/sh/ordenar.sh";
       desordenar = "~/Proyectos/Scripts/sh/desordenar.sh";
+      cp = "cp --reflink=auto";
+      umatrix = "unimatrix -s 95 -f";
+      grep = "grep --color=auto";
+      diff = "diff --color=auto";
+      syu = "yay -Syu";
+      codepwd = ''code "$(pwd)"'';
+      napwd = ''nautilus "$(pwd)" &> /dev/null & disown'';
+      dots = "cd ~/.dotfiles && codepwd && q";
+      dotsn = "cd ~/.dotfiles && nvim";
     };
 
     history = {
@@ -133,17 +149,6 @@
       save = 10000;
       path = "${config.xdg.dataHome}/zsh/history";
     };
-
-    plugins = [
-      {
-        name = "zsh-autosuggestions";
-        src = pkgs.zsh-autosuggestions.outPath;
-      }
-      {
-        name = "zsh-syntax-highlighting";
-        src = pkgs.zsh-syntax-highlighting.outPath;
-      }
-    ];
   };
 
   gtk = {
@@ -163,6 +168,7 @@
   services.gnome-keyring.enable = true;
 
   dconf.settings = {
+    "org/gnome/desktop/interface".show-battery-percentage = true;
     "org/gnome/shell/extensions/user-theme" = {
       name = "Marble-blue-dark";
     };
@@ -173,7 +179,8 @@
     };
 
     "org/gnome/shell" = {
-      enabled-extensions = [
+      enabled-extensions = with pkgs.gnomeExtensions; [
+        "MaximizeToEmptyWorkspace-extension@kovari.cc"
         "dash-to-dock@micxgx.gmail.com"
         "show-desktop-button@amivaleo"
         "user-theme@gnome-shell-extensions.gcampax.github.com"
@@ -181,6 +188,8 @@
         "blur-my-shell@aunetx"
         "gtk4-ding@smedius.gitlab.com"
         "rounded-window-corners@fxgn"
+        "clipboard-indicator@tudmotu.com"
+        "fullscreen-hot-corner@sorrow.about.alice.pm.me"
       ];
     };
 

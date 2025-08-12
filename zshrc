@@ -86,6 +86,6 @@ bindkey "^[[3~" delete-char
 
 #/────────────────────/p10k/────────────────────/#
 
+mkdir -p "${XDG_CONFIG_HOME:-$HOME/.config}/zsh"
 zinit ice depth=1; zinit light romkatv/powerlevel10k
 [[ ! -f "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/p10k.zsh" ]] || source "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/p10k.zsh"
-
