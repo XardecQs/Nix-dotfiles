@@ -2,13 +2,14 @@
 
 {
   nixpkgs.config.allowUnfree = true;
+
   home = {
     stateVersion = "25.05";
     username = "xardec";
     homeDirectory = "/home/xardec";
 
     packages = with pkgs; [
-      # Herramientas CLI 
+      # Herramientas CLI
       bat
       btop
       eza
@@ -22,15 +23,18 @@
       wl-clipboard
       unimatrix
       tmux
-      
+      dpkg
+      tree
+
       # Entorno de escritorio
-      gnome-tweaks       # Fixed package name
+      gnome-tweaks # Fixed package name
       gnome-extension-manager
       gnomeExtensions.gsconnect
       gnomeExtensions.blur-my-shell
       gnomeExtensions.gtk4-desktop-icons-ng-ding
       gnomeExtensions.dash-to-dock
       gnomeExtensions.user-themes
+      gnomeExtensions.rounded-window-corners-reborn
       dconf-editor
       kitty
       github-desktop
@@ -40,16 +44,16 @@
       krita
       inkscape
       firefox
-      
+
       # Temas
-      jetbrains-mono           # Simplified package name
+      nerd-fonts.jetbrains-mono
       papirus-icon-theme
       marble-shell-theme
-      
+
       # Herramientas para desarrollo
       nodejs
       python3
-      
+
       # Gestión Nix
       home-manager
 
@@ -63,19 +67,30 @@
 
       vscode
       github-desktop
-      onlyoffice-desktopeditors
+      gthumb
+      nixfmt-rfc-style
+
+      wineWowPackages.stagingFull
+      steam
+      lutris
     ];
 
     file = {
-      ".config/nvim".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/config/nvim";
-      ".config/kitty".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/config/kitty";
-      ".config/fastfetch".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/config/fastfetch";
-      #".config/Code".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/config/Code";
-      ".vscode".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/vscode";
-      ".icons".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/icons";
-      ".fonts".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/fonts";
-      ".config/zsh".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/config/zsh";
-      ".config/user-dirs.dirs".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/config/user-dirs.dirs";
+      ".config/nvim".source =
+        config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/config/nvim";
+      ".config/kitty".source =
+        config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/config/kitty";
+      ".config/fastfetch".source =
+        config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/config/fastfetch";
+      ".vscode".source =
+        config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/vscode";
+      ".icons".source =
+        config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/icons";
+      ".local/share/fonts".source =
+        config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/fonts";
+      ".config/zsh".source =
+        config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/config/zsh";
+      ".config/user-dirs.dirs".source = "${config.home.homeDirectory}/.dotfiles/config/user-dirs.dirs";
     };
   };
 
@@ -98,7 +113,7 @@
       zstyle ':fzf-tab:*' fzf-flags --height=40% --border
       [[ ! -f ~/.config/zsh/p10k.zsh ]] || source ~/.config/zsh/p10k.zsh
     '';
-     
+
     shellAliases = {
       lla = "lsd -la";
       ll = "lsd -l";
@@ -112,7 +127,7 @@
       ordenar = "~/Proyectos/Scripts/sh/ordenar.sh";
       desordenar = "~/Proyectos/Scripts/sh/desordenar.sh";
     };
-    
+
     history = {
       size = 10000;
       save = 10000;
@@ -145,15 +160,13 @@
     };
   };
 
-  fonts.fontconfig.enable = true;
-
   services.gnome-keyring.enable = true;
 
   dconf.settings = {
     "org/gnome/shell/extensions/user-theme" = {
       name = "Marble-blue-dark";
     };
-    
+
     "org/gnome/desktop/interface" = {
       color-scheme = "prefer-dark";
       gtk-theme = "adw-gtk3-dark";
@@ -167,6 +180,7 @@
         "gsconnect@andyholmes.github.io"
         "blur-my-shell@aunetx"
         "gtk4-ding@smedius.gitlab.com"
+        "rounded-window-corners@fxgn"
       ];
     };
 
@@ -221,6 +235,6 @@
       move-to-workspace-7 = [ "<Super><Shift>7" ];
       move-to-workspace-8 = [ "<Super><Shift>8" ];
       move-to-workspace-9 = [ "<Super><Shift>9" ];
-    };    
+    };
   };
 }
