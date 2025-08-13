@@ -91,6 +91,14 @@
 
       realcugan-ncnn-vulkan
       realesrgan-ncnn-vulkan
+
+      youtube-music
+      spotify
+
+      icoextract
+      zapzap
+      android-tools
+      alsa-utils
     ];
 
     file = {

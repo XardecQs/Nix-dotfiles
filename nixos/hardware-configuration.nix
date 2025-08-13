@@ -25,68 +25,71 @@
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
-  fileSystems."/" = {
-    device = "/dev/disk/by-uuid/1f416b78-cafd-4ad1-a37c-13142bfff2fd";
-    fsType = "btrfs";
-    options = [
-      "subvol=@"
-      "compress=zstd"
-      "autodefrag"
-      "space_cache=v2"
-    ];
-  };
+  fileSystems = {
 
-  fileSystems."/boot/efi" = {
-    device = "/dev/disk/by-uuid/4259-FED9";
-    fsType = "vfat";
-    options = [
-      "fmask=0022"
-      "dmask=0022"
-    ];
-  };
+    "/" = {
+      device = "/dev/disk/by-uuid/1f416b78-cafd-4ad1-a37c-13142bfff2fd";
+      fsType = "btrfs";
+      options = [
+        "subvol=@"
+        "compress=zstd"
+        "autodefrag"
+        "space_cache=v2"
+      ];
+    };
 
-  fileSystems."/home" = {
-    device = "/dev/disk/by-uuid/9f4f0f39-eadf-4fb0-827d-1c9a72b45f75";
-    fsType = "btrfs";
-    options = [
-      "subvol=@home"
-      "compress=zstd"
-      "autodefrag"
-      "space_cache=v2"
-    ];
-  };
+    "/boot/efi" = {
+      device = "/dev/disk/by-uuid/4259-FED9";
+      fsType = "vfat";
+      options = [
+        "fmask=0022"
+        "dmask=0022"
+      ];
+    };
 
-  fileSystems."/opt/games" = {
-    device = "/dev/disk/by-uuid/9f4f0f39-eadf-4fb0-827d-1c9a72b45f75";
-    fsType = "btrfs";
-    options = [
-      "subvol=@games"
-      "compress=zstd"
-      "autodefrag"
-      "space_cache=v2"
-    ];
-  };
+    "/home" = {
+      device = "/dev/disk/by-uuid/9f4f0f39-eadf-4fb0-827d-1c9a72b45f75";
+      fsType = "btrfs";
+      options = [
+        "subvol=@home"
+        "compress=zstd"
+        "autodefrag"
+        "space_cache=v2"
+      ];
+    };
 
-  fileSystems."/srv/backups" = {
-    device = "/dev/disk/by-uuid/9f4f0f39-eadf-4fb0-827d-1c9a72b45f75";
-    fsType = "btrfs";
-    options = [
-      "subvol=@backups"
-      "compress=zstd"
-      "autodefrag"
-      "space_cache=v2"
-    ];
-  };
+    "/opt/games" = {
+      device = "/dev/disk/by-uuid/9f4f0f39-eadf-4fb0-827d-1c9a72b45f75";
+      fsType = "btrfs";
+      options = [
+        "subvol=@games"
+        "compress=zstd"
+        "autodefrag"
+        "space_cache=v2"
+      ];
+    };
 
-  fileSystems."/srv/vms" = {
-    device = "/dev/disk/by-uuid/9f4f0f39-eadf-4fb0-827d-1c9a72b45f75";
-    fsType = "btrfs";
-    options = [
-      "subvol=@vms"
-      "compress=zstd"
-      "autodefrag"
-      "space_cache=v2"
-    ];
+    "/srv/backups" = {
+      device = "/dev/disk/by-uuid/9f4f0f39-eadf-4fb0-827d-1c9a72b45f75";
+      fsType = "btrfs";
+      options = [
+        "subvol=@backups"
+        "compress=zstd"
+        "autodefrag"
+        "space_cache=v2"
+      ];
+    };
+
+    "/srv/vms" = {
+      device = "/dev/disk/by-uuid/9f4f0f39-eadf-4fb0-827d-1c9a72b45f75";
+      fsType = "btrfs";
+      options = [
+        "subvol=@vms"
+        "compress=zstd"
+        "autodefrag"
+        "space_cache=v2"
+      ];
+    };
   };
 
   swapDevices = [

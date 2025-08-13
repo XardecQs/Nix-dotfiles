@@ -8,7 +8,7 @@
   time.timeZone = "America/Lima";
   i18n.defaultLocale = "es_PE.UTF-8";
   console.keyMap = "la-latin1";
-  system.autoUpgrade.enable = true;
+  #system.autoUpgrade.enable = true;
   boot.kernelPackages = pkgs.linuxPackages_testing;
   # Bootloader
   boot.loader = {
@@ -54,9 +54,6 @@
       libvirtd.members = [ "xardec" ];
       xardec = {
         name = "xardec";
-        members = [
-          "xardec"
-        ];
         gid = 1000;
       };
     };
@@ -103,6 +100,7 @@
   };
 
   security.rtkit.enable = true;
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   virtualisation = {
     libvirtd = {
@@ -131,7 +129,6 @@
     fastfetch
     kitty
     firefox
-    vscode
     cups
     epson-escpr2
     tree
