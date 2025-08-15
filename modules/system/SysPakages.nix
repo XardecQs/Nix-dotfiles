@@ -17,8 +17,12 @@
     epson-escpr2
     tree
     gdu
+    yazi
 
     zsh
+    zsh-autosuggestions
+    zsh-syntax-highlighting
+    zsh-fzf-tab
 
     gcc
     binutils
@@ -36,4 +40,16 @@
     win-spice
     freerdp
   ];
+
+  programs = {
+    kdeconnect = {
+      enable = true;
+      package = pkgs.gnomeExtensions.gsconnect;
+    };
+    steam = {
+      enable = true;
+      gamescopeSession.enable = true;
+    };
+    gamemode.enable = true;
+  };
 }

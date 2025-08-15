@@ -7,6 +7,7 @@
     ./modules/system/SysPakages.nix
     ./modules/system/users.nix
     ./modules/system/services.nix
+    ./modules/system/zsh.nix
   ];
 
   # Configuración básica del sistema
@@ -42,11 +43,8 @@
 
   system.activationScripts.copy-dotfiles = {
     text = ''
-      echo "Copiando configuraciones a dotfiles..."
-      mkdir -p /home/xardec/.dotfiles/nixos
-      cp -f /etc/nixos/{configuration.nix,hardware-configuration.nix} /home/xardec/.dotfiles/nixos/
-      chown -R xardec:users /home/xardec/.dotfiles/nixos
+      echo ""
     '';
-    deps = [ ]; # No depende de otros scripts
+    deps = [ ];
   };
 }

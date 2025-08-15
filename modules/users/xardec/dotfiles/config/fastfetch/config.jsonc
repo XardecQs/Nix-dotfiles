@@ -31,7 +31,7 @@
     "break",
     {
       "type": "os",
-      "key": " OS",
+      "key": " OS",
       "format": "{2} {#2}{12}",
       "keyColor": "32"
     },

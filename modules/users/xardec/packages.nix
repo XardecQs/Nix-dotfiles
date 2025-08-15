@@ -33,6 +33,8 @@
     gnomeExtensions.maximize-to-empty-workspace-2025
     gnomeExtensions.fullscreen-hot-corner
     gnomeExtensions.clipboard-indicator
+    gnomeExtensions.caffeine
+    gnomeExtensions.tray-icons-reloaded
 
     dconf-editor
     kitty
@@ -77,6 +79,8 @@
     wineWowPackages.stagingFull
     steam
     lutris
+    mangohud
+    protonup
 
     # Virtualization
     virt-manager

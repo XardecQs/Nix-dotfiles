@@ -1,38 +1,35 @@
-{
-  config,
-  pkgs,
-  dotfilesDir,
-  ...
-}:
+{ config, pkgs, ... }:
 
 {
   programs.zsh = {
-
     enable = true;
     enableCompletion = true;
-    autosuggestion.enable = true;
+    autosuggestions.enable = true;
     syntaxHighlighting.enable = true;
 
-    initContent = ''
+    interactiveShellInit = ''
       source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
       source ${pkgs.zsh-fzf-tab}/share/fzf-tab/fzf-tab.zsh
-      # source ${dotfilesDir}/zshrc
+      source ${pkgs.zsh-autosuggestions}/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+      source ${pkgs.zsh-syntax-highlighting}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+      HISTSIZE=10000
+      HISTFILE=~/.local/share/zsh/history
+      SAVEHIST=$HISTSIZE
 
       autoload -U select-word-style
       select-word-style bash
 
       zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
       zstyle ':completion:*' menu no
-      zstyle ':fzf-tab:complete:cd:*' fzf-preview 'lsd --color=always $realpath'
+      zstyle ':fzf-tab:complete:cd:*' fzf-preview '${pkgs.lsd}/bin/lsd --color=always $realpath'
       zstyle ':fzf-tab:*' fzf-flags --height=55% --border
-
-      #/--------------------/ atajos de teclado /--------------------/#
 
       bindkey '^[[1;5C' forward-word
       bindkey '^[[1;5D' backward-word
       bindkey '^H' backward-kill-word
       bindkey "^[[3~" delete-char
-      
+
       [[ ! -f ~/.config/zsh/p10k.zsh ]] || source ~/.config/zsh/p10k.zsh
     '';
 
@@ -60,22 +57,5 @@
       dots = "cd ~/.dotfiles && codepwd && q";
       dotsn = "cd ~/.dotfiles && nvim";
     };
-
-    history = {
-      size = 10000;
-      save = 10000;
-      path = "${config.xdg.dataHome}/zsh/history";
-    };
-
-    plugins = [
-      {
-        name = "zsh-autosuggestions";
-        src = pkgs.zsh-autosuggestions.outPath;
-      }
-      {
-        name = "zsh-syntax-highlighting";
-        src = pkgs.zsh-syntax-highlighting.outPath;
-      }
-    ];
   };
 }

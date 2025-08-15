@@ -40,6 +40,8 @@
         "rounded-window-corners@fxgn"
         "clipboard-indicator@tudmotu.com"
         "fullscreen-hot-corner@sorrow.about.alice.pm.me"
+        "caffeine@patapon.info"
+        "trayIconsReloaded@selfmade.pl"
       ];
     };
 
