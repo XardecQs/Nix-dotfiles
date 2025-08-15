@@ -7,10 +7,32 @@
 
 {
   programs.zsh = {
+
     enable = true;
+    enableCompletion = true;
+    autosuggestion.enable = true;
+    syntaxHighlighting.enable = true;
 
     initContent = ''
-      source ${dotfilesDir}/zshrc
+      source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
+      source ${pkgs.zsh-fzf-tab}/share/fzf-tab/fzf-tab.zsh
+      # source ${dotfilesDir}/zshrc
+
+      autoload -U select-word-style
+      select-word-style bash
+
+      zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+      zstyle ':completion:*' menu no
+      zstyle ':fzf-tab:complete:cd:*' fzf-preview 'lsd --color=always $realpath'
+      zstyle ':fzf-tab:*' fzf-flags --height=55% --border
+
+      #/--------------------/ atajos de teclado /--------------------/#
+
+      bindkey '^[[1;5C' forward-word
+      bindkey '^[[1;5D' backward-word
+      bindkey '^H' backward-kill-word
+      bindkey "^[[3~" delete-char
+      [[ ! -f ~/.config/zsh/p10k.zsh ]] || source ~/.config/zsh/p10k.zsh
     '';
 
     shellAliases = {
@@ -43,5 +65,16 @@
       save = 10000;
       path = "${config.xdg.dataHome}/zsh/history";
     };
+
+    plugins = [
+      {
+        name = "zsh-autosuggestions";
+        src = pkgs.zsh-autosuggestions.outPath;
+      }
+      {
+        name = "zsh-syntax-highlighting";
+        src = pkgs.zsh-syntax-highlighting.outPath;
+      }
+    ];
   };
 }

@@ -18,6 +18,7 @@
     tmux
     dpkg
     tree
+    zsh-powerlevel10k
 
     # Desktop environment tools
     eiciel
@@ -37,6 +38,7 @@
     kitty
     github-desktop
     adw-gtk3
+    switcheroo
 
     # Multimedia and design
     krita

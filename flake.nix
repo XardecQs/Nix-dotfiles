@@ -15,6 +15,7 @@
       ...
     }:
     {
+      # System configuration for NixOS
       nixosConfigurations.NeoReaper = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
@@ -29,6 +30,16 @@
                 imports = [ ./home.nix ];
                 _module.args.dotfilesDir = "/etc/nixos/modules/users/xardec/dotfiles";
               };
+          }
+        ];
+      };
+
+      homeConfigurations."xardec" = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages."x86_64-linux";
+        modules = [
+          ./home.nix
+          {
+            _module.args.dotfilesDir = "/etc/nixos/modules/users/xardec/dotfiles";
           }
         ];
       };
