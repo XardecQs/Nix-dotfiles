@@ -19,6 +19,7 @@
     dpkg
     tree
     zsh-powerlevel10k
+    jp2a
 
     # Desktop environment tools
     eiciel

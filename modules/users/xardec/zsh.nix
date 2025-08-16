@@ -46,7 +46,7 @@
       ".." = "cd ..";
       "..." = "cd ../..";
       cf = "clear && fastfetch";
-      cff = "clear && fastfetch --config examples/13.jsonc";
+      cff = "clear && fastfetch --config /etc/nixos/modules/users/xardec/dotfiles/config/fastfetch/13-custom.jsonc";
       snvim = "sudo nvim";
       ordenar = "~/Proyectos/Scripts/sh/ordenar.sh";
       desordenar = "~/Proyectos/Scripts/sh/desordenar.sh";
