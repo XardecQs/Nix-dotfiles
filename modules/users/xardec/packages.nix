@@ -1,4 +1,10 @@
-{ config, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  zen-browser,
+  ...
+}:
 
 {
   home.packages = with pkgs; [
@@ -20,6 +26,7 @@
     tree
     zsh-powerlevel10k
     jp2a
+    libicns
 
     # Desktop environment tools
     eiciel
@@ -42,6 +49,7 @@
     github-desktop
     adw-gtk3
     switcheroo
+    zenity
 
     # Multimedia and design
     krita
@@ -59,10 +67,6 @@
 
     # Nix management
     home-manager
-
-    # Gaming
-    prismlauncher
-    mcaselector
 
     # Printer drivers
     epson-escpr2
@@ -82,6 +86,8 @@
     lutris
     mangohud
     protonup
+    prismlauncher
+    mcaselector
 
     # Virtualization
     virt-manager
@@ -106,5 +112,7 @@
     zapzap
     android-tools
     alsa-utils
+
+    (zen-browser.packages."${pkgs.system}".default)
   ];
 }

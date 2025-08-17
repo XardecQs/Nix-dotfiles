@@ -35,7 +35,6 @@
       prunePaths = [
         "/tmp"
         "/var/tmp"
-        "/nix/store"
         "/home/.cache"
       ];
     };

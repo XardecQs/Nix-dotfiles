@@ -12,7 +12,6 @@
     openssh
     fastfetch
     kitty
-    firefox
     cups
     epson-escpr2
     tree
