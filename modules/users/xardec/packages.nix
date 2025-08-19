@@ -50,6 +50,7 @@
     adw-gtk3
     switcheroo
     zenity
+    ffmpegthumbnailer
 
     # Multimedia and design
     krita
@@ -109,10 +110,22 @@
 
     # Miscellaneous
     icoextract
-    zapzap
     android-tools
     alsa-utils
+    syncthing
+    zapzap
+    discord
+    telegram-desktop
 
     (zen-browser.packages."${pkgs.system}".default)
   ];
+
+  services.syncthing = {
+    enable = true;
+    settings = {
+      options = {
+        urAccepted = -1;
+      };
+    };
+  };
 }

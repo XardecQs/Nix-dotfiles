@@ -49,6 +49,7 @@
       custom-keybindings = [
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/"
+        "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/"
       ];
     };
 
@@ -62,6 +63,12 @@
       name = "Open Nautilus";
       command = "nautilus";
       binding = "<Super>e";
+    };
+
+    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2" = {
+      name = "walpaper aleatorio";
+      command = "/home/xardec/Proyectos/Scripts/sh/gnome-wallpaper.sh 'Imagen aleatoria'";
+      binding = "<Super><Shift>w";
     };
 
     "org/gnome/shell/keybindings" = {

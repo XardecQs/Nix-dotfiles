@@ -17,6 +17,10 @@
     tree
     gdu
     yazi
+    syncthing
+
+    nautilus-python
+    nautilus-open-any-terminal
 
     zsh
     zsh-autosuggestions
@@ -50,5 +54,9 @@
       gamescopeSession.enable = true;
     };
     gamemode.enable = true;
+    nautilus-open-any-terminal = {
+      enable = true;
+      terminal = "kitty";
+    };
   };
 }
