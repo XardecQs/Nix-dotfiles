@@ -18,6 +18,7 @@
     gdu
     yazi
     syncthing
+    bindfs
 
     nautilus-python
     nautilus-open-any-terminal
@@ -42,6 +43,9 @@
     win-virtio
     win-spice
     freerdp
+    qemu
+    libvirt
+    swtpm
   ];
 
   programs = {
@@ -52,6 +56,8 @@
     steam = {
       enable = true;
       gamescopeSession.enable = true;
+      remotePlay.openFirewall = true;
+      dedicatedServer.openFirewall = true;
     };
     gamemode.enable = true;
     nautilus-open-any-terminal = {

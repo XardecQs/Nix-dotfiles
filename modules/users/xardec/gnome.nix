@@ -17,6 +17,15 @@
     };
   };
 
+  qt = {
+    enable = true;
+    platformTheme = "gnome";
+    style = {
+      name = "Adwaita-dark";
+      package = pkgs.gnome-themes-extra;
+    };
+  };
+
   dconf.settings = {
     "org/gnome/desktop/interface" = {
       show-battery-percentage = true;
@@ -42,6 +51,8 @@
         "fullscreen-hot-corner@sorrow.about.alice.pm.me"
         "caffeine@patapon.info"
         "trayIconsReloaded@selfmade.pl"
+        "emoji-copy@felipeftn"
+        "logomenu@aryan_k"
       ];
     };
 

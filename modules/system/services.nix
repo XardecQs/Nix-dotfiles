@@ -7,8 +7,12 @@
   };
 
   services = {
-    displayManager.gdm.enable = true;
+    displayManager.gdm = {
+      enable = true;
+      wayland = true;
+    };
     desktopManager.gnome.enable = true;
+    #xserver.desktopManager.cinnamon.enable = true;
     xserver = {
       enable = true;
       desktopManager.xterm.enable = false;

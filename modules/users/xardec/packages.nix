@@ -3,8 +3,13 @@
   lib,
   pkgs,
   zen-browser,
+  spicetify-nix,
   ...
 }:
+
+let
+  spicePkgs = spicetify-nix.legacyPackages.${pkgs.stdenv.hostPlatform.system};
+in
 
 {
   home.packages = with pkgs; [
@@ -29,7 +34,6 @@
     libicns
 
     # Desktop environment tools
-    eiciel
     gnome-tweaks
     gnome-extension-manager
     gnomeExtensions.gsconnect
@@ -43,6 +47,8 @@
     gnomeExtensions.clipboard-indicator
     gnomeExtensions.caffeine
     gnomeExtensions.tray-icons-reloaded
+    gnomeExtensions.emoji-copy
+    gnomeExtensions.logo-menu
 
     dconf-editor
     kitty
@@ -51,6 +57,7 @@
     switcheroo
     zenity
     ffmpegthumbnailer
+    vlc
 
     # Multimedia and design
     krita
@@ -61,6 +68,7 @@
     nerd-fonts.jetbrains-mono
     papirus-icon-theme
     marble-shell-theme
+    adwaita-qt6
 
     # Development tools
     nodejs
@@ -83,6 +91,7 @@
 
     # Gaming and emulation
     wineWowPackages.stagingFull
+    winetricks
     steam
     lutris
     mangohud
@@ -99,6 +108,9 @@
     win-virtio
     win-spice
     freerdp
+    qemu
+    libvirt
+    swtpm
 
     # AI and image processing
     realcugan-ncnn-vulkan
@@ -106,7 +118,7 @@
 
     # Media
     youtube-music
-    spotify
+    #spotify
 
     # Miscellaneous
     icoextract
@@ -127,5 +139,21 @@
         urAccepted = -1;
       };
     };
+  };
+
+  programs.spicetify = {
+    enable = true;
+    alwaysEnableDevTools = true;
+    enabledExtensions = with spicePkgs.extensions; [
+      adblock
+      fullAppDisplay
+      beautifulLyrics
+      shuffle
+    ];
+    enabledCustomApps = with spicePkgs.apps; [
+      lyricsPlus
+      marketplace
+      betterLibrary
+    ];   
   };
 }

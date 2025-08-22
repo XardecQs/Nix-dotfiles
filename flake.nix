@@ -10,6 +10,7 @@
       url = "github:0xc000022070/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    spicetify-nix.url = "github:Gerg-L/spicetify-nix";
   };
 
   outputs =
@@ -18,6 +19,7 @@
       nixpkgs,
       home-manager,
       zen-browser,
+      spicetify-nix,
       ...
     }:
     {
@@ -33,9 +35,13 @@
             home-manager.users.xardec =
               { config, ... }:
               {
-                imports = [ ./home.nix ];
-                _module.args.dotfilesDir = "/etc/nixos/modules/users/xardec/dotfiles";
+                imports = [
+                  ./home.nix
+                  spicetify-nix.homeManagerModules.default
+                ];
                 _module.args.zen-browser = zen-browser;
+                _module.args.dotfilesDir = "/etc/nixos/modules/users/xardec/dotfiles";
+                _module.args.spicetify-nix = spicetify-nix;  # Agrega esto para pasar el input
               };
           }
         ];
@@ -46,9 +52,11 @@
         pkgs = nixpkgs.legacyPackages."x86_64-linux";
         modules = [
           ./home.nix
+          spicetify-nix.homeManagerModules.default
           {
             _module.args.dotfilesDir = "/etc/nixos/modules/users/xardec/dotfiles";
             _module.args.zen-browser = zen-browser;
+            _module.args.spicetify-nix = spicetify-nix;  # Agrega esto para pasar el input
           }
         ];
       };

@@ -89,6 +89,11 @@
         "space_cache=v2"
       ];
     };
+
+    "/home/xardec/.local/share/fonts" = {
+      device = "/etc/nixos/modules/users/xardec/dotfiles/fonts";
+      fsType = "fuse.bindfs";
+    };
   };
 
   swapDevices = [
