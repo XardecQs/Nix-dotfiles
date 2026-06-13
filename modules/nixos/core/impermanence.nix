@@ -39,7 +39,6 @@ in
           ".vscode"
           ".local/share/applications"
           ".config/librewolf"
-          ".local/state/syncthing"
           ".config/libresprite"
           ".local/share/SMB1R"
           ".local/share/ElyPrismLauncher"

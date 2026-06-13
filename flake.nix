@@ -18,7 +18,7 @@
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
     dotfiles = {
-      url = "git+file:///home/xardec/Proyectos/GitHub/dotfiles";
+      url = "path:/home/xardec/Proyectos/GitHub/dotfiles";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 

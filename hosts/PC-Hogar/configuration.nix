@@ -10,7 +10,12 @@
   modulos = {
     nixos = {
       core = {
-        boot.enable = false;
+        boot = {
+          enable = true;
+          kernelPackage = pkgs.linuxPackages;
+          plymouth.enable = false;
+          efiSysMountPoint = null;
+        };
         general.enable = true;
         locate.enable = true;
         nix.enable = true;
@@ -30,34 +35,12 @@
       };
       services = {
         networking.enable = true;
-        servidor.enable = true;
+        servidor = {
+          enable = true;
+          btrfsScrub = false;
+        };
         virtualisation.enable = false;
         waydroid.enable = false;
-      };
-    };
-  };
-
-  #/--------------------/ Boot /--------------------/#
-
-  boot = {
-    kernelPackages = pkgs.linuxPackages;
-    loader = {
-      timeout = 0;
-      systemd-boot = {
-        enable = true;
-        configurationLimit = 5;
-        consoleMode = "max";
-      };
-    };
-    kernel.sysctl = {
-      "vm.swappiness" = 100;
-      "vm.watermark_boost_factor" = 0;
-      "vm.watermark_scale_factor" = 125;
-    };
-    loader = {
-      efi = {
-        canTouchEfiVariables = true;
-        efiSysMountPoint = "/boot/efi";
       };
     };
   };

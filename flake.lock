@@ -7,17 +7,14 @@
         ]
       },
       "locked": {
-        "lastModified": 1780884271,
-        "narHash": "sha256-B1dRuAbbYKtVTpOSkt199dojNyltnHMDc9nIvGYjbOo=",
-        "ref": "refs/heads/main",
-        "rev": "8b7bf3af5f304c2725a09bfc78b62089c2025915",
-        "revCount": 15,
-        "type": "git",
-        "url": "file:///home/xardec/Proyectos/GitHub/dotfiles"
+        "lastModified": 1781382527,
+        "narHash": "sha256-ZMHFSz2sIJNp5IWHXDnoY0Gl54EODQvI8GxzK9daYis=",
+        "path": "/home/xardec/Proyectos/GitHub/dotfiles",
+        "type": "path"
       },
       "original": {
-        "type": "git",
-        "url": "file:///home/xardec/Proyectos/GitHub/dotfiles"
+        "path": "/home/xardec/Proyectos/GitHub/dotfiles",
+        "type": "path"
       }
     },
     "elyprismlauncher": {
@@ -69,11 +66,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1779642365,
-        "narHash": "sha256-RSx2II+3evukiuNL+tSTyThP0EjFiBbMwU/7HUteb7Q=",
+        "lastModified": 1781388736,
+        "narHash": "sha256-MtmCPRxUmntxY3pE8cKxp/uIh0Qb0AIR/b2CrND5O+I=",
         "owner": "XardecQs",
         "repo": "font-collection",
-        "rev": "15810c48d2fe7888c0dfcd6251754dd88d3ee275",
+        "rev": "354f465b41c751f999a15e6209333b2428568b2c",
         "type": "github"
       },
       "original": {
@@ -156,11 +153,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1780801986,
-        "narHash": "sha256-wOY3vV7859GUh/adjnU/oh8F6/p7Xf7GVCrRairEO4M=",
+        "lastModified": 1781388240,
+        "narHash": "sha256-FrOP5NuFTlV0JuV6GYSg/HNl/KpZbMvfVsMrLpj5Bvw=",
         "owner": "XardecQs",
         "repo": "iconos",
-        "rev": "4f481878b7aabd68c470499ae3ef027f5628830b",
+        "rev": "f8649daff55d205211ac6e174520609a22bcbc80",
         "type": "github"
       },
       "original": {

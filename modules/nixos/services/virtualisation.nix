@@ -17,10 +17,6 @@ in
     programs.virt-manager.enable = true;
 
     virtualisation = {
-      #libvirtd = {
-      #  enable = true;
-      #  parallelShutdown = 3;
-      #};
       podman = {
         enable = true;
         dockerCompat = true;
@@ -33,15 +29,11 @@ in
     ];
     users.users.${user}.extraGroups = [
       "podman"
-      "libvirtd"
     ];
     services.spice-vdagentd.enable = true;
 
     environment.persistence."/persist" = lib.mkIf config.modulos.nixos.core.impermanence.enable {
       directories = [
-        "/var/lib/libvirt"
-        "/var/lib/virt-manager"
-        "/var/lib/docker"
         "/var/lib/containerd"
       ];
       users.${user}.directories = [

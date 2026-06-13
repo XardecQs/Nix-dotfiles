@@ -24,28 +24,10 @@
     ];
   };
 
-  modulos = {
-    home = {
-      core = {
-        dotfiles = {
-          nvim.enable = true;
-          zsh.enable = true;
-          tmux.enable = true;
-          xdgUserDirs.enable = true;
-        };
-        packages.enable = false;
-      };
-      desktop = {
-        gnome.enable = false;
-        spicetify.enable = false;
-        obs.enable = false;
-      };
-      apps = {
-        flatpak.enable = false;
-        java.enable = false;
-        syncthing.enable = false;
-        lan-mouse.enable = false;
-      };
-    };
+  modulos.home.core.dotfiles = {
+    nvim.enable = true;
+    zsh.enable = true;
+    tmux.enable = true;
+    xdgUserDirs.enable = true;
   };
 }
