@@ -1,4 +1,5 @@
 {
+  self,
   lib,
   config,
   pkgs,
@@ -11,6 +12,16 @@ in
 {
   options.modulos.nixos.core.nix = {
     enable = lib.mkEnableOption "nix";
+    cores = lib.mkOption {
+      type = lib.types.nullOr lib.types.ints.positive;
+      default = null;
+      description = "Número de cores para builds. null = auto-detectar.";
+    };
+    flakePath = lib.mkOption {
+      type = lib.types.nullOr lib.types.str;
+      default = null;
+      description = "Ruta al flake para nh. null = auto-detectar (/etc/nixos).";
+    };
   };
 
   config = lib.mkIf cfg.enable {
@@ -27,8 +38,8 @@ in
         auto-optimise-store = true;
         warn-dirty = false;
       }
-      // lib.optionalAttrs (config.networking.hostName == "PC-Hogar") {
-        cores = 1;
+      // lib.optionalAttrs (cfg.cores != null) {
+        cores = cfg.cores;
       };
     };
     programs = {
@@ -37,12 +48,18 @@ in
         enableZshIntegration = true;
       };
       nix-index-database.comma.enable = true;
-      nh = {
-        enable = true;
-        clean.enable = true;
-        clean.extraArgs = "--keep-since 4d --keep 3";
-        flake = "/home/${user}/Proyectos/GitHub/nixos-config";
-      };
+      nh =
+        lib.recursiveUpdate
+          {
+            enable = true;
+            clean.enable = true;
+            clean.extraArgs = "--keep-since 4d --keep 3";
+          }
+          (
+            lib.optionalAttrs (cfg.flakePath != null) {
+              flake = "${cfg.flakePath}";
+            }
+          );
       nix-ld.enable = true;
       appimage = {
         enable = true;

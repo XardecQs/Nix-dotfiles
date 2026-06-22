@@ -18,7 +18,7 @@
         inputs.dotfiles.homeManagerModules.default
       ];
 
-      home.stateVersion = "25.11";
+      home.stateVersion = "26.05";
 
       home.packages = with pkgs; [
         gcc
@@ -54,9 +54,17 @@
         };
         general.enable = true;
         locate.enable = true;
-        nix.enable = true;
+        nix = {
+          enable = true;
+          cores = 1;
+          flakePath = "/home/xardec/Proyectos/GitHub/nixos-config";
+        };
         security.enable = true;
-        users.enable = true;
+        users = {
+          enable = true;
+          primaryUser = "xardec";
+          primaryUserPassword = "$6$6kcVeTMDK6yE6XdY$cgvhSqLBhNShREDb.cdNYV0iJS3GpqM.HTjcJKFt864nsnOviqoL6tZah/oamGZe3REqS8q1MQPcxq/76jYTW.";
+        };
       };
       hardware = {
         intel-gpu.enable = true;

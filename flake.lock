@@ -7,14 +7,17 @@
         ]
       },
       "locked": {
-        "lastModified": 1782012154,
-        "narHash": "sha256-6DbVtausz0tLl5ghVkIvnJc89nHC1DuWIsEKSMqy6F8=",
-        "path": "/home/xardec/Proyectos/GitHub/dotfiles",
-        "type": "path"
+        "lastModified": 1781388230,
+        "narHash": "sha256-T7MV4LsuFDCELi7rzbtacuhr7G7HkQZU0l+gu5gBtxo=",
+        "owner": "XardecQs",
+        "repo": "dotfiles",
+        "rev": "735ab7eee5da3ceac8d8f49e45da6566801d9f41",
+        "type": "github"
       },
       "original": {
-        "path": "/home/xardec/Proyectos/GitHub/dotfiles",
-        "type": "path"
+        "owner": "XardecQs",
+        "repo": "dotfiles",
+        "type": "github"
       }
     },
     "elyprismlauncher": {

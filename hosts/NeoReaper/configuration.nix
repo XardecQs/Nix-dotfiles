@@ -19,7 +19,7 @@
         inputs.spicetify-nix.homeManagerModules.default
         inputs.nix-flatpak.homeManagerModules.nix-flatpak
       ];
-      home.stateVersion = "25.11";
+      home.stateVersion = "26.05";
 
       modulos.home = {
         core = {
@@ -63,7 +63,10 @@
         general.enable = true;
         impermanence.enable = true;
         locate.enable = true;
-        nix.enable = true;
+        nix = {
+          enable = true;
+          flakePath = "/home/xardec/Proyectos/GitHub/nixos-config";
+        };
         security.enable = true;
         users = {
           enable = true;

@@ -8,7 +8,7 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    system.stateVersion = "25.11";
+    system.stateVersion = "26.05";
     time.timeZone = "America/Lima";
     i18n.defaultLocale = "es_PE.UTF-8";
     console.keyMap = "la-latin1";

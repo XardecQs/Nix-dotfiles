@@ -18,7 +18,7 @@
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
     dotfiles = {
-      url = "path:/home/xardec/Proyectos/GitHub/dotfiles";
+      url = "github:XardecQs/dotfiles";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
@@ -66,7 +66,7 @@
         hostname: extraModules:
         nixpkgs-stable.lib.nixosSystem {
           inherit system;
-          specialArgs = { inherit inputs; };
+          specialArgs = { inherit inputs self; };
 
           modules = [
             ./hosts/${hostname}/configuration.nix
@@ -85,6 +85,8 @@
 
     in
     {
+      formatter.x86_64-linux = nixpkgs-stable.legacyPackages.x86_64-linux.nixfmt;
+
       nixosConfigurations = {
         NeoReaper = mkHost "NeoReaper" [ ];
         PC-Hogar = mkHost "PC-Hogar" [ ];
