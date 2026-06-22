@@ -8,6 +8,8 @@ let
 in
 {
   config = lib.mkIf cfg.enable {
+    age.secrets.cloudreve-aria2.file = ../../../../secrets/cloudreve-aria2.age;
+
     virtualisation = {
       podman = {
         enable = true;
@@ -29,7 +31,7 @@ in
             PUID = "0";
             PGID = "0";
             UMASK_SET = "022";
-            RPC_SECRET = "cloudreve-aria2-secret";
+            RPC_SECRET_FILE = config.age.secrets.cloudreve-aria2.path;
           };
           extraOptions = [ "--network=host" ];
           autoStart = true;

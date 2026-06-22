@@ -9,6 +9,10 @@
       inputs.nixpkgs.follows = "nixpkgs-stable";
     };
     impermanence.url = "github:nix-community/impermanence";
+    agenix = {
+      url = "github:ryantm/agenix";
+      inputs.nixpkgs.follows = "nixpkgs-stable";
+    };
     font-collection = {
       url = "github:XardecQs/font-collection";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
@@ -73,6 +77,7 @@
             inputs.font-collection.nixosModules.default
             inputs.iconos.nixosModules.default
             inputs.impermanence.nixosModules.impermanence
+            inputs.agenix.nixosModules.default
             home-manager.nixosModules.home-manager
             inputs.nix-index-database.nixosModules.default
             {
