@@ -1,5 +1,5 @@
 let
-  neoReaper = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJfPyQDmThtZEjxLNEaG6V7XiJVLfbKMl8AEbl6HZp9z xavierdelpiero@proton.me";
+  neoReaper = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJNEM9GAos27geNbizU0PoUWNoInV1TfdLAKUzLaoOIt agenix";
 in
 {
   "secrets/root-password.age".publicKeys = [ neoReaper ];

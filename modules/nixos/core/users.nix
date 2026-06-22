@@ -17,6 +17,8 @@ in
   };
 
   config = lib.mkIf cfg.enable {
+    age.identityPaths = [ "/home/${cfg.primaryUser}/.ssh/agenix" ];
+
     age.secrets = {
       root-password.file = ../../../secrets/root-password.age;
       primaryUser-password.file = ../../../secrets/primaryUser-password.age;
