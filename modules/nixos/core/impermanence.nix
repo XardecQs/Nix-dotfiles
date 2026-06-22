@@ -47,7 +47,7 @@ in
           ".cache/opencode"
           ".local/share/TwilitRealm"
         ];
-        files = [ 
+        files = [
         ];
       };
     };

@@ -50,30 +50,17 @@ in
     };
 
     services = {
-      auto-cpufreq = {
-        enable = true;
-        settings.charger = {
-          governor = "powersave";
-          turbo = "never";
-        };
-      };
-
-      tlp = {
-        enable = true;
-        settings = {
-          CPU_SCALING_GOVERNOR_ON_AC = "powersave";
-          DISK_IDLE_SECS_ON_AC = 60;
-          USB_AUTOSUSPEND = 1;
-        };
-      };
-
-      power-profiles-daemon.enable = false;
-      thermald.enable = true;
-      upower.enable = true;
-
       btrfs.autoScrub = lib.mkIf cfg.btrfsScrub {
         enable = true;
         interval = "weekly";
+      };
+    };
+
+    modulos.nixos.hardware.energia = {
+      enable = true;
+      autoCpufreq = {
+        gobernadorCargador = "powersave";
+        turboCargador = "never";
       };
     };
 

@@ -39,7 +39,8 @@ in
         };
         efi = {
           canTouchEfiVariables = true;
-        } // lib.optionalAttrs (cfg.efiSysMountPoint != null) {
+        }
+        // lib.optionalAttrs (cfg.efiSysMountPoint != null) {
           efiSysMountPoint = cfg.efiSysMountPoint;
         };
       };

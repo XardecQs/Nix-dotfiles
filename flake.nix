@@ -75,31 +75,10 @@
             inputs.impermanence.nixosModules.impermanence
             home-manager.nixosModules.home-manager
             inputs.nix-index-database.nixosModules.default
-            (
-              { config, ... }:
-              {
-                nixpkgs.config.allowUnfree = true;
-                nixpkgs.overlays = [ unstableOverlay ];
-
-                home-manager = {
-                  useGlobalPkgs = true;
-                  useUserPackages = true;
-                  extraSpecialArgs = {
-                    inherit inputs;
-                    inherit (config.modulos.nixos.core.users) primaryUser;
-                  };
-
-                  users.${config.modulos.nixos.core.users.primaryUser} = {
-                    imports = [
-                      ./hosts/${hostname}/home.nix
-                      inputs.spicetify-nix.homeManagerModules.default
-                      inputs.nix-flatpak.homeManagerModules.nix-flatpak
-                      inputs.dotfiles.homeManagerModules.default
-                    ];
-                  };
-                };
-              }
-            )
+            {
+              nixpkgs.config.allowUnfree = true;
+              nixpkgs.overlays = [ unstableOverlay ];
+            }
           ]
           ++ extraModules;
         };

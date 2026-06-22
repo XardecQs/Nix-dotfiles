@@ -5,5 +5,6 @@
     ./hardware
     ./desktop
     ./services
+    ./../compartidos
   ];
 }

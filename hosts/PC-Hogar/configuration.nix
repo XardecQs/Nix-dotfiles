@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 {
   imports = [
     ./hardware-configuration.nix
@@ -6,6 +6,42 @@
   ];
 
   networking.hostName = "PC-Hogar";
+
+  home-manager = {
+    useGlobalPkgs = true;
+    useUserPackages = true;
+    extraSpecialArgs = { inherit inputs; };
+
+    users.xardec = {
+      imports = [
+        ./../../modules/home
+        inputs.dotfiles.homeManagerModules.default
+      ];
+
+      home.stateVersion = "25.11";
+
+      home.packages = with pkgs; [
+        gcc
+        git
+        gnumake
+        imagemagick
+        nodejs
+        pciutils
+        python3
+        pywal16
+        ripgrep
+        rofi
+        usbutils
+      ];
+
+      modulos.home.core.dotfiles = {
+        nvim.enable = true;
+        zsh.enable = true;
+        tmux.enable = true;
+        xdgUserDirs.enable = true;
+      };
+    };
+  };
 
   modulos = {
     nixos = {
@@ -24,13 +60,9 @@
       };
       hardware = {
         intel-gpu.enable = true;
-        laptop.enable = false;
       };
       desktop = {
-        gnome.enable = false;
-        sway.enable = false;
         pipewire.enable = true;
-        steam.enable = false;
         systemPackages.enable = true;
       };
       services = {
@@ -39,9 +71,9 @@
           enable = true;
           btrfsScrub = false;
         };
-        virtualisation.enable = false;
-        waydroid.enable = false;
       };
     };
+
+    compartidos = { };
   };
 }

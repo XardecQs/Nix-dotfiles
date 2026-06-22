@@ -4,13 +4,14 @@
   ...
 }:
 let
-  # Example: cfg = config.modulos.nixos.core.plantilla;
-  # Example: cfg = config.modulos.nixos.hardware.plantilla;
-  # Example: cfg = config.modulos.nixos.desktop.plantilla;
-  # Example: cfg = config.modulos.nixos.services.plantilla;
-  # Example: cfg = config.modulos.home.core.plantilla;
-  # Example: cfg = config.modulos.home.desktop.plantilla;
-  # Example: cfg = config.modulos.home.apps.plantilla;
+  # Módulo exclusivo de sistema:
+  #   cfg = config.modulos.nixos.<categoria>.<nombre>;
+  #
+  # Módulo exclusivo de usuario:
+  #   cfg = config.home-manager.users.<usuario>.modulos.home.<categoria>.<nombre>;
+  #
+  # Módulo unificado (sistema + usuario):
+  #   cfg = config.modulos.compartidos.<nombre>;
   cfg = config.modulos.nixos.core.plantilla;
 in
 {
