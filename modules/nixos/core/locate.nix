@@ -20,7 +20,6 @@ in
       prunePaths = [
         "/tmp"
         "/var/tmp"
-        "/home/.cache"
       ];
     };
 

@@ -21,9 +21,5 @@ in
     environment.systemPackages = with pkgs; [
       sshfs
     ];
-
-    environment.persistence."/persist" = lib.mkIf config.modulos.nixos.core.impermanence.enable {
-      users.${config.modulos.nixos.core.users.primaryUser}.directories = [ ".ssh" ];
-    };
   };
 }

@@ -14,7 +14,7 @@ in
     sistema = lib.mkOption {
       type = lib.types.bool;
       default = true;
-      description = "Activar configuración de sistema (GDM, displayManager, persistencia)";
+      description = "Activar configuración de sistema (gnome desktop, persistencia)";
     };
     usuario = lib.mkOption {
       type = lib.types.bool;
@@ -27,7 +27,6 @@ in
     lib.mkMerge [
       (lib.mkIf cfg.sistema {
         services = {
-          displayManager.gdm.enable = true;
           desktopManager.gnome.enable = true;
           xserver.xkb.layout = "latam";
         };

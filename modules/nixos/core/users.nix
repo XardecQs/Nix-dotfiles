@@ -17,14 +17,19 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    age.identityPaths = [ "/home/${cfg.primaryUser}/.ssh/agenix" ];
+    age.identityPaths = [ "/persist/home/${cfg.primaryUser}/.ssh/agenix" ];
 
     age.secrets = {
       root-password.file = ../../../secrets/root-password.age;
       primaryUser-password.file = ../../../secrets/primaryUser-password.age;
     };
+
+    environment.persistence."/persist" = lib.mkIf config.modulos.nixos.core.impermanence.enable {
+      users.${cfg.primaryUser}.directories = [ ".ssh" ];
+    };
+
     users = {
-      mutableUsers = false;
+      mutableUsers = true;
       defaultUserShell = pkgs.zsh;
       users.root = {
         shell = pkgs.zsh;

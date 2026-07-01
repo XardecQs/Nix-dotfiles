@@ -18,6 +18,7 @@
         inputs.dotfiles.homeManagerModules.default
         inputs.spicetify-nix.homeManagerModules.default
         inputs.nix-flatpak.homeManagerModules.nix-flatpak
+        inputs.caelestia-shell.homeManagerModules.default
       ];
       home.stateVersion = "26.05";
 
@@ -44,6 +45,7 @@
         desktop = {
           #spicetify.enable = true;
           #obs.enable = true;
+          rofi.enable = true;
         };
         apps = {
           syncthing.enable = true;
@@ -78,6 +80,7 @@
         energia.enable = true;
       };
       desktop = {
+        display-manager.enable = true;
         pipewire.enable = true;
         steam.enable = true;
         systemPackages.enable = true;
@@ -95,7 +98,13 @@
     compartidos = {
       gnome.enable = true;
       #plasma.enable = true;
-      #hyprland.enable = true;
+      hyprland.enable = false;
+      caelestia.enable = false;
+      niri = {
+        enable = false;
+        configPath = "/home/xardec/Proyectos/GitHub/nixos-config/modules/compartidos/niri";
+        quickshellPath = "/home/xardec/Proyectos/GitHub/nixos-config/modules/compartidos/niri/quickshell";
+      };
       flatpak.enable = true;
       #windows-vm.enable = true;
     };

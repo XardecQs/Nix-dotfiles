@@ -45,6 +45,10 @@
       url = "github:feschber/lan-mouse";
       inputs.nixpkgs.follows = "nixpkgs-stable";
     };
+    caelestia-shell = {
+      url = "github:caelestia-dots/shell";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
 
   };
 
