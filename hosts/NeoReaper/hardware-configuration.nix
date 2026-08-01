@@ -22,7 +22,7 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" = {
-    device = "/dev/mapper/sda2_crypt";
+    device = "/dev/mapper/DecryptedSystem";
     fsType = "btrfs";
     options = [
       "subvol=@root"
@@ -33,13 +33,12 @@
     ];
   };
 
-  boot.initrd.luks.devices."sda2_crypt" = {
-    device = "/dev/disk/by-uuid/08dd846c-4349-47d6-a992-cf2d8424f2ce";
-    preLVM = true;
+  boot.initrd.luks.devices."DecryptedSystem" = {
+    device = "/dev/disk/by-uuid/16026e48-592c-4490-ae4f-4ec4b112ec78";
   };
 
   fileSystems."/nix" = {
-    device = "/dev/mapper/sda2_crypt";
+    device = "/dev/mapper/DecryptedSystem";
     fsType = "btrfs";
     options = [
       "subvol=@nix"
@@ -51,7 +50,7 @@
   };
 
   fileSystems."/persist" = {
-    device = "/dev/mapper/sda2_crypt";
+    device = "/dev/mapper/DecryptedSystem";
     fsType = "btrfs";
     options = [
       "subvol=@persist"
@@ -64,7 +63,7 @@
   };
 
   fileSystems."/var/log" = {
-    device = "/dev/mapper/sda2_crypt";
+    device = "/dev/mapper/DecryptedSystem";
     fsType = "btrfs";
     options = [
       "subvol=@log"
@@ -76,7 +75,7 @@
   };
 
   fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/90A1-010D";
+    device = "/dev/disk/by-uuid/3738-0F14";
     fsType = "vfat";
     options = [
       "fmask=0077"
@@ -85,7 +84,7 @@
   };
 
   swapDevices = [
-    { device = "/dev/disk/by-uuid/1491cd76-ebbd-4e69-83af-08f067d12470"; }
+    { device = "/dev/disk/by-uuid/1c57e7d2-0869-447c-8d2f-3f6f5fc1139a"; }
   ];
 
   zramSwap = {
@@ -123,7 +122,7 @@
 
       script = ''
         mkdir -p /btrfs_tmp
-        mount /dev/mapper/sda2_crypt /btrfs_tmp
+        mount /dev/mapper/DecryptedSystem /btrfs_tmp
 
         timestamp=$(date +%Y-%m-%d_%H-%M-%S)
         mkdir -p /btrfs_tmp/old_roots
@@ -163,7 +162,7 @@
 
   #boot.initrd.postDeviceCommands = lib.mkAfter ''
   #      mkdir /btrfs_tmp
-  #      mount /dev/mapper/sda2_crypt /btrfs_tmp
+  #      mount /dev/mapper/DecryptedSystem /btrfs_tmp
   #
   #      timestamp=$(date +%Y-%m-%d_%H-%M-%S)
   #      mkdir -p /btrfs_tmp/old_roots
