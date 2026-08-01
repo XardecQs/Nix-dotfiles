@@ -35,19 +35,17 @@ in
           package = lib.mkDefault pkgs.gnomeExtensions.gsconnect;
         };
 
-        environment.persistence."/persist" = lib.mkIf config.modulos.nixos.core.impermanence.enable {
-          directories = [ "/var/lib/AccountsService" ];
-          users.${user}.directories = [
-            ".cache/clipboard-indicator@tudmotu.com"
-            ".config/dconf"
-            ".config/gtk-3.0"
-            ".local/share/gvfs-metadata"
-            ".local/share/nautilus"
-            ".themes"
-            ".local/share/albert"
-            ".config/gsconnect"
-          ];
-        };
+        modulos.persistencia.sistema.directories = [ "/var/lib/AccountsService" ];
+        modulos.persistencia.usuarios.${user}.directories = [
+          ".cache/clipboard-indicator@tudmotu.com"
+          ".config/dconf"
+          ".config/gtk-3.0"
+          ".local/share/gvfs-metadata"
+          ".local/share/nautilus"
+          ".themes"
+          ".local/share/albert"
+          ".config/gsconnect"
+        ];
       })
 
       (lib.mkIf cfg.usuario {

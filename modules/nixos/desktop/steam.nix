@@ -124,11 +124,9 @@ in
       ACTION=="change", SUBSYSTEM=="backlight", KERNEL=="*", RUN+="${pkgs.coreutils}/bin/chmod a+rw /sys/class/backlight/%k/brightness"
     '';
 
-    environment.persistence."/persist" = lib.mkIf config.modulos.nixos.core.impermanence.enable {
-      users.${config.modulos.nixos.core.users.primaryUser}.directories = [
-        ".local/share/Steam"
-        ".steam"
-      ];
-    };
+    modulos.persistencia.usuarios.${config.modulos.nixos.core.users.primaryUser}.directories = [
+      ".local/share/Steam"
+      ".steam"
+    ];
   };
 }

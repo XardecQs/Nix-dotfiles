@@ -29,16 +29,14 @@ in
         services.desktopManager.plasma6.enable = true;
         services.xserver.xkb.layout = "latam";
 
-        environment.persistence."/persist" = lib.mkIf config.modulos.nixos.core.impermanence.enable {
-          users.${user}.directories = [
-            ".config/KDE"
-            ".local/share/kglobalaccel"
-            ".local/share/kscreen"
-            ".local/share/ksysguard"
-            ".local/share/kwin"
-            ".local/share/plasma"
-          ];
-        };
+        modulos.persistencia.usuarios.${user}.directories = [
+          ".config/KDE"
+          ".local/share/kglobalaccel"
+          ".local/share/kscreen"
+          ".local/share/ksysguard"
+          ".local/share/kwin"
+          ".local/share/plasma"
+        ];
       })
 
       (lib.mkIf cfg.usuario {

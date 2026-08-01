@@ -43,8 +43,6 @@ in
       groups.waydroid.gid = 1023;
     };
 
-    environment.persistence."/persist" = lib.mkIf config.modulos.nixos.core.impermanence.enable {
-      directories = [ "/var/lib/waydroid" ];
-    };
+    modulos.persistencia.sistema.directories = [ "/var/lib/waydroid" ];
   };
 }

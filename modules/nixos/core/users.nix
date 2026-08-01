@@ -24,9 +24,7 @@ in
       primaryUser-password.file = ../../../secrets/primaryUser-password.age;
     };
 
-    environment.persistence."/persist" = lib.mkIf config.modulos.nixos.core.impermanence.enable {
-      users.${cfg.primaryUser}.directories = [ ".ssh" ];
-    };
+    modulos.persistencia.usuarios.${cfg.primaryUser}.directories = [ ".ssh" ];
 
     users = {
       mutableUsers = true;

@@ -8,7 +8,7 @@
       url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs-stable";
     };
-    impermanence.url = "github:nix-community/impermanence";
+    preservation.url = "github:nix-community/preservation";
     agenix = {
       url = "github:ryantm/agenix";
       inputs.nixpkgs.follows = "nixpkgs-stable";
@@ -39,6 +39,10 @@
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
     elyprismlauncher = {
       url = "github:ElyPrismLauncher/ElyPrismLauncher";
+      inputs.nixpkgs.follows = "nixpkgs-stable";
+    };
+    gta-mo = {
+      url = "/home/xardec/Proyectos/GTA Mod Organizer";
       inputs.nixpkgs.follows = "nixpkgs-stable";
     };
     lan-mouse = {
@@ -80,7 +84,7 @@
             ./hosts/${hostname}/configuration.nix
             inputs.font-collection.nixosModules.default
             inputs.iconos.nixosModules.default
-            inputs.impermanence.nixosModules.impermanence
+            inputs.preservation.nixosModules.default
             inputs.agenix.nixosModules.default
             home-manager.nixosModules.home-manager
             inputs.nix-index-database.nixosModules.default

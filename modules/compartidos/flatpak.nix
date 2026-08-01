@@ -23,12 +23,10 @@ in
       (lib.mkIf cfg.sistema {
         services.flatpak.enable = true;
 
-        environment.persistence."/persist" = lib.mkIf config.modulos.nixos.core.impermanence.enable {
-          users.${user}.directories = [
-            ".local/share/flatpak"
-            ".var"
-          ];
-        };
+        modulos.persistencia.usuarios.${user}.directories = [
+          ".local/share/flatpak"
+          ".var"
+        ];
       })
 
       (lib.mkIf cfg.usuario {

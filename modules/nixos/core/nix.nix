@@ -76,9 +76,7 @@ in
       comma
     ];
 
-    environment.persistence."/persist" = lib.mkIf config.modulos.nixos.core.impermanence.enable {
-      directories = [ "/var/lib/nixos" ];
-      users.${user}.directories = [ ".cache/nix-index" ];
-    };
+    modulos.persistencia.sistema.directories = [ "/var/lib/nixos" ];
+    modulos.persistencia.usuarios.${user}.directories = [ ".cache/nix-index" ];
   };
 }

@@ -7,6 +7,8 @@
 
   networking.hostName = "PC-Hogar";
 
+  boot.initrd.systemd.enable = true;
+
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
@@ -14,7 +16,8 @@
 
     users.xardec = {
       imports = [
-        ./../../modules/home
+        ./../../modules/home/core
+        ./../../modules/home/apps
         inputs.dotfiles.homeManagerModules.default
       ];
 

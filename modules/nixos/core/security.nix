@@ -16,9 +16,7 @@ in
       pam.services.login.enableGnomeKeyring = true;
     };
 
-    environment.persistence."/persist" = lib.mkIf config.modulos.nixos.core.impermanence.enable {
-      directories = [ "/var/db/sudo" ];
-      users.${user}.directories = [ ".local/share/keyrings" ];
-    };
+    modulos.persistencia.sistema.directories = [ "/var/db/sudo" ];
+    modulos.persistencia.usuarios.${user}.directories = [ ".local/share/keyrings" ];
   };
 }

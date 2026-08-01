@@ -129,12 +129,10 @@ in
               )
             ];
 
-          home.persistence."/persist" = {
-            directories = [
-              ".cache/wal"
-              ".cache/awww"
-            ];
-          };
+          modulos.persistencia.usuarios.${user}.directories = [
+            ".cache/wal"
+            ".cache/awww"
+          ];
         };
       })
     ]

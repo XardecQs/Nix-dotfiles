@@ -27,9 +27,5 @@ in
       source = "${config.home.path}/lib/retroarch/cores";
       force = true;
     };
-
-    home.persistence."/persist".directories = [
-      ".config/retroarch"
-    ];
   };
 }

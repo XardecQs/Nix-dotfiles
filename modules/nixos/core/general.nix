@@ -13,11 +13,9 @@ in
     i18n.defaultLocale = "es_PE.UTF-8";
     console.keyMap = "la-latin1";
 
-    environment.persistence."/persist" = lib.mkIf config.modulos.nixos.core.impermanence.enable {
-      directories = [
-        "/var/lib/systemd/coredump"
-        "/var/lib/systemd/timers"
-      ];
-    };
+    modulos.persistencia.sistema.directories = [
+      "/var/lib/systemd/coredump"
+      "/var/lib/systemd/timers"
+    ];
   };
 }

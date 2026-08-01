@@ -42,9 +42,5 @@ in
         };
       };
     };
-
-    home.persistence."/persist".directories = [
-      ".local/state/syncthing"
-    ];
   };
 }

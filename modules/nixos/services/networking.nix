@@ -16,10 +16,8 @@ in
       };
     };
 
-    environment.persistence."/persist" = lib.mkIf config.modulos.nixos.core.impermanence.enable {
-      directories = [
-        "/etc/NetworkManager/system-connections"
-      ];
-    };
+    modulos.persistencia.sistema.directories = [
+      "/etc/NetworkManager/system-connections"
+    ];
   };
 }

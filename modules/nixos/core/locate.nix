@@ -23,8 +23,6 @@ in
       ];
     };
 
-    environment.persistence."/persist" = lib.mkIf config.modulos.nixos.core.impermanence.enable {
-      files = [ "/var/cache/locatedb" ];
-    };
+    modulos.persistencia.sistema.files = [ "/var/cache/locatedb" ];
   };
 }

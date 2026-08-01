@@ -17,12 +17,5 @@ in
       enable = true;
       package = pkgs.rofi;
     };
-
-    home.persistence."/persist" = {
-      directories = [
-        ".config/rofi"
-        ".local/share/rofi"
-      ];
-    };
   };
 }
