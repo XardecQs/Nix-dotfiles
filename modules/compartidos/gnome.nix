@@ -36,16 +36,21 @@ in
         };
 
         modulos.persistencia.sistema.directories = [ "/var/lib/AccountsService" ];
-        modulos.persistencia.usuarios.${user}.directories = [
-          ".cache/clipboard-indicator@tudmotu.com"
-          ".config/dconf"
-          ".config/gtk-3.0"
-          ".local/share/gvfs-metadata"
-          ".local/share/nautilus"
-          ".themes"
-          ".local/share/albert"
-          ".config/gsconnect"
-        ];
+        modulos.persistencia.usuarios.${user} = {
+          directories = [
+            ".cache/clipboard-indicator@tudmotu.com"
+            ".config/dconf"
+            ".config/gtk-3.0"
+            ".local/share/gvfs-metadata"
+            ".local/share/nautilus"
+            ".themes"
+            ".local/share/albert"
+            ".config/gsconnect"
+          ];
+          files = [
+            #".config/background"
+          ];
+        };
       })
 
       (lib.mkIf cfg.usuario {

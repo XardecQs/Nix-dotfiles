@@ -42,7 +42,7 @@
       inputs.nixpkgs.follows = "nixpkgs-stable";
     };
     gta-mo = {
-      url = "/home/xardec/Proyectos/GTA Mod Organizer";
+      url = "github:XardecQs/samt-nix";
       inputs.nixpkgs.follows = "nixpkgs-stable";
     };
     lan-mouse = {

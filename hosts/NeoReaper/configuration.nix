@@ -69,6 +69,7 @@
         ".local/share/rofi"
         ".local/state/syncthing"
         ".config/retroarch"
+        ".local/share/xemu"
         ".cache/tracker3"
         ".local/share/tracker3"
         ".local/state/wireplumber"
@@ -79,7 +80,7 @@
         ".config/syncthing"
         ".config/goa-1.0"
         ".cups"
-        ".local/share/backgrounds"
+        #".local/share/backgrounds"
       ];
       usuarios.xardec.files = [
         ".gitconfig"

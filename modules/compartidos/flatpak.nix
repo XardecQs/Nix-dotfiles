@@ -50,6 +50,7 @@ in
             "net.retrodeck.retrodeck"
             "org.kde.krita"
             "page.codeberg.JakobDev.jdNBTExplorer"
+            "ar.xjuan.Cambalache"
           ];
         };
       })

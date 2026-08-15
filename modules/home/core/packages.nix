@@ -83,6 +83,7 @@ in
       librewolf
       cage
       onlyoffice-desktopeditors
+      varia
     ];
     programs.git = {
       enable = true;

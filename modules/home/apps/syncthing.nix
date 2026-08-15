@@ -15,7 +15,7 @@ in
         options.urAccepted = -1;
         devices = {
           "Redmi Note 10 Pro" = {
-            id = "CKKQFLP-DHF2EVH-DTYRSR3-JE4EPTH-CZF2P6S-56VFBL5-55E4GYA-EF7CWQJ";
+            id = "ER73BNF-I5V5D4M-IOITMSU-4JQTRS5-PN7EIPR-3CXF2KN-FMHN3MI-6VIPAAW";
           };
         };
         folders = {

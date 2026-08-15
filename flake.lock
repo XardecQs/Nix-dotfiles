@@ -181,14 +181,17 @@
         ]
       },
       "locked": {
-        "lastModified": 1785624201,
-        "narHash": "sha256-2BzNccWC3ccmFbMU8lSRgO5lYQzfDjIVKFczoZuc31o=",
-        "path": "/home/xardec/Proyectos/GTA Mod Organizer",
-        "type": "path"
+        "lastModified": 1785631441,
+        "narHash": "sha256-2qKVDmyH6J8gUp34Yj67ZP0nl7pZLnEMDwyXGD1EVHg=",
+        "owner": "XardecQs",
+        "repo": "samt-nix",
+        "rev": "bedb2d21f45d85f6aacda851890703265b4cf55b",
+        "type": "github"
       },
       "original": {
-        "path": "/home/xardec/Proyectos/GTA Mod Organizer",
-        "type": "path"
+        "owner": "XardecQs",
+        "repo": "samt-nix",
+        "type": "github"
       }
     },
     "hercules-ci-effects": {
